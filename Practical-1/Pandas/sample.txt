@@ -1,0 +1,10 @@
+Product1,10.99,3
+Product2,9.99,3
+Product3,12.99,3
+Product4,8.99,3
+Product5,11.99,3
+Product6,10.99,3
+Product7,9.99,3
+Product8,12.99,3
+Product9,8.99,3
+Product10,11.99,3
