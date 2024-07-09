@@ -1,24 +1,30 @@
-import matplotlib.pyplot as plt
-import pandas as pd
-import os
+import time
+import numpy as np;
 
-# Give Current Directory
-script_dir = os.path.dirname(__file__)
-iris_file_path = os.path.join(script_dir, '.', 'iris.csv')
+# Measure the execution time for matrix multiplication using NumPy arrays vs. Python lists for a 1000x1000 matrix
+numpy_matrix_1 = np.random.rand(1000, 1000)
 
-try:
-    df_iris = pd.read_csv(iris_file_path)
-except FileNotFoundError:
-    print("File 'iris.csv' not found. Please make sure the file exists in the current directory.")
+print("Matrix 1\n",numpy_matrix_1,end="\n\n")
 
-# Convert non-numeric columns to numeric before calculating the correlation matrix
-df_iris = df_iris.apply(lambda x: pd.to_numeric(x, errors='coerce') if pd.api.types.is_string_dtype(x) else x)
+numpy_matrix_2 = np.random.rand(1000, 1000)
+print("Matrix 2\n",numpy_matrix_1,end="\n\n")
 
-# Calculate the correlation matrix
-correlation_matrix = df_iris.corr()
+# Now convert in list
+python_list_matrix_1 = numpy_matrix_1.tolist()
+# print("Python List 1\n",python_list_matrix_1,end="\n\n")
 
-# Plotting the correlation matrix
-plt.figure(figsize=(10, 8))
-plt.matshow(correlation_matrix)
-plt.colorbar()
-plt.show()
+python_list_matrix_2 = numpy_matrix_2.tolist()
+# print("Python List 2\n",python_list_matrix_2,end="\n\n")
+
+start = time.time()
+np.dot(numpy_matrix_1, numpy_matrix_2)
+end = time.time()
+numpy_time = end - start
+
+# Here For Normal List
+start = time.time()
+result = [[sum(a*b for a,b in zip(X_row,Y_col)) for Y_col in zip(*python_list_matrix_2)] for X_row in python_list_matrix_1]
+end = time.time()
+python_time = end - start
+
+print(f"NumPy time: {numpy_time}s, Python list time: {python_time}s")
