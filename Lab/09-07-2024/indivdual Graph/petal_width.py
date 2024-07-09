@@ -14,9 +14,9 @@ except FileNotFoundError:
 
 # Construct histograms to analyze the distribution of numerical features in the dataset 
 plt.figure(figsize=(10, 6))
-df_iris['sepal_length'].hist(bins=20, color='skyblue', edgecolor='black')
-plt.title('Sepal Length Distribution')
-plt.xlabel('Sepal Length (cm)')
+df_iris['petal_width'].hist(bins=20, color='skyblue', edgecolor='black')
+plt.title('Petal Width Distribution')
+plt.xlabel('Petal Width (cm)')  # Corrected label to match the data
 plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()

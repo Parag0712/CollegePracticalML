@@ -14,7 +14,7 @@ except FileNotFoundError:
 
 # Construct histograms to analyze the distribution of numerical features in the dataset 
 plt.figure(figsize=(10, 6))
-df_iris['sepal_width'].hist(bins=20, color='skyblue', edgecolor='black')
+df_iris['sepal_width'].hist(bins=20, color='skyblue', edgecolor='black', histtype='bar', rwidth=0.8)
 plt.title('Sepal Width Distribution')
 plt.xlabel('Sepal Width (cm)')
 plt.ylabel('Frequency')
